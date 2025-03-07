@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fate/Grand Order: Zettai Majuu Sensen Babylonia Original Soundtrack I</title>
+    <style>
+        #playlist{
+            list-style-type: none;
+        }
+        #playlist li a{
+            color: black;
+            text-decoration: none;
+        }
+        #playlist .current-song a{
+            color: blue;        
+        }
+        #downloads{
+            list-style-type: none;
+        }
+
+    </style>
+</head>
+<body>
+    <audio src="" controls id="audioPlayer">
+        Sorry, your browser doesn't support html5!
+    </audio>
+    <ul id="playlist">
+    <li class="current-song"><a href="https://dl.dropboxusercontent.com/s/h3imssd9jzd64o2/01%20Hero%27s%20Mission.mp3">01 Hero's Mission</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/5823jiq9ew6zcik/02%20Mage%20of%20Flowers.mp3">02 Mage of Flowers</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/sswc3iltw6ens3i/03%20Jaguar%20in%20the%20Jungle.mp3">03 Jaguar in the Jungle</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/f8dk89kd833kjfr/04%20Front%20Line.mp3">04 Front Line</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/r457jvr6ea21vf1/05%20Like%20the%20Blue%20Sky.mp3">05 Like the Blue Sky</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/orb6w7mhfam68ke/06%20Reminiscence%20-%20Birth.mp3">06 Reminiscence - Birth</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/pnjbpkrbr0xweri/07%20Crisis.mp3">07 Crisis</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/8j24vg2romx2t58/08%20As%20Long%20As%20They%20Are%20Together.mp3">08 As Long As They Are Together</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/oiysau0msmmnehf/09%20What%20Was%20Made%20by%20My%20Mother.mp3">09 What Was Made by My Mother</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/or6aguod5l41bfu/10%20Goddess%20of%20the%20Demon%20Beast.mp3">10 Goddess of the Demon Beast</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/y4b5res0p3guuw3/11%20Spartan%20Warrior.mp3">11 Spartan Warrior</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/yfdgetkpamg057q/12%20Light%20Wind.mp3">12 Light Wind</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/aw0zydgbt5nt4n2/13%20Dedicate%20this%20feeling.mp3">13 Dedicate This Feeling</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/2ox9njtpezvk9fx/14%20Dawn%20and%20Dusk.mp3">14 Dawn and Dusk</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/o2xbrbkiwtbiuhc/15%20The%20King%20Laughs%20a%20Lot.mp3">15 The King Laughs a Lot</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/44l1u4qaulqdgmg/16%20Goddess%20of%20the%20Sun.mp3">16 Goddess of the Sun</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/67p3r8lwpt0k6zb/17%20Corridor%20of%20Memories%20%28Babylonia%20ver.%29.mp3">17 Corridor of Memories (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/hmt63lyayq7koyc/18%20Unyielding%20Resolution%20%28Babylonia%20ver.%29.mp3">18 Unyielding Resolution (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/jiaknvm1n6rtd6y/19%20Parting%20the%20Dark%20Cloud%20%28Babylonia%20ver.%29.mp3">19 Parting the Dark Cloud (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/f7ysj393hg2y7df/20%20Emergency%20%28Babylonia%20ver.%29.mp3">20 Emergency (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/r64s9lkjq6hlsjj/21%20Ignition%20-BATTLE2-%20%28Babylonia%20ver.%29.mp3">21 Ignition ~BATTLE 2~ (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/fikqi7w4ggnflpp/22%20Prepare%20for%20Battle%20%28Babylonia%20ver.%29.mp3">22 Prepare For Battle (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/lofethatj1pdxma/23%20Bond%20%28Babylonia%20ver.%29.mp3">23 Bond (Babylonia)</a></li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script>
+        audioPlayer();
+        function audioPlayer(){
+            var currentSong = 0;
+            $("#audioPlayer")[0].src = $("#playlist li a")[0];
+            $("#playlist li a").click(function(e){
+               e.preventDefault();                           
+               $("#audioPlayer")[0].src = this;
+               $("#audioPlayer")[0].play();
+               $("#playlist li").removeClass("current-song");
+                currentSong = $(this).parent().index();
+                $(this).parent().addClass("current-song");
+            });
+            
+            $("#audioPlayer")[0].addEventListener("ended", function(){
+                currentSong++;
+                $("#playlist li").removeClass("current-song");
+                $("#playlist li:eq("+currentSong+")").addClass("current-song");
+                $("#audioPlayer")[0].src = $("#playlist li a")[currentSong].href;
+                $("#audioPlayer")[0].play();
+            });
+            
+        }
+    
+    </script>
+
+<ul id="downloads">
+<li><a href="https://drive.google.com/drive/folders/1PMz7mRAymnxgZ8A6Qx7CsZFHwzDP70rF?usp=sharing">Download This Album from Google Drive</a></li>
+<li><a href="https://dropbox.com/sh/v1u4xvkga0d0j92/AADkf4ZgROfRk2zxaAt3rgX0a">Download This Album from Dropbox</a></li>
+</ul>
+
+</body>
+</html>
