@@ -1,1 +1,87 @@
-hello world
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fate/Grand Order: Zettai Majuu Sensen Babylonia Original Soundtrack I</title>
+    <style>
+        #playlist{
+            list-style-type: none;
+        }
+        #playlist li a{
+            color: black;
+            text-decoration: none;
+        }
+        #playlist .current-song a{
+            color: blue;        
+        }
+        #downloads{
+            list-style-type: none;
+        }
+
+    </style>
+</head>
+<body>
+    <audio src="" controls id="audioPlayer">
+        Sorry, your browser doesn't support html5!
+    </audio>
+    <ul id="playlist">
+    <li class="current-song"><a href="https://dl.dropboxusercontent.com/s/dudkt0wpfobs9hz/01%20Absolute%20Demonic%20Front.mp3">01 Absolute Demonic Front</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/4nqmko5typctkhv/02%20To%20Hold%20This%20Shield.mp3">02 To Hold This Shield</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/15xkotsczpnt83k/03%20Your%20Wish.mp3">03 Your Wish</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/fmn343b0iit8dur/04%20What%20To%20Do-.mp3">04 What To Do?</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/a3rvasnxmtx6530/05%20Innocent%20Eyes.mp3">05 Innocent Eyes</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/8scczbs90bjnlk9/06%20The%20King%20Who%20Reigns.mp3">06 The King Who Reigns</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/8xwpfmr0owk7yjh/07%20As%20The%20Last%20Master.mp3">07 As The Last Master</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/xnijw8m8e5jbkwl/08%20Peaceful%20Uruk.mp3">08 Peaceful Uruk</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/y23wb8ak68ya0lr/09%20Absent%20Starlight.mp3">09 Absent Starlight</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/x2r86qr3y7jhyj6/10%20Nourish%20Your%20Spirit.mp3">10 Nourish Your Spirit</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/o4mmnjyg8j1thrf/11%20The%20Decisive%20Battle%20Draws%20Near.mp3">11 The Decisive Battle Draws Near</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/kjr585m1iagbz3r/12%20Today%27s%20Victories.mp3">12 Today's Victories</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/cogfv1fnsn506sh/13%20Just%20One%20Hope.mp3">13 Just One Hope</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/m39t3sd2btk690s/14%20Overlapping%20Footprints.mp3">14 Overlapping Footprints</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/rw5lxm739e3k2lh/15%20Goddess%20of%20Venus.mp3">15 Goddess of Venus</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/7l40ltpomrvbdz9/16%20What%20God%20Created.mp3">16 What God Created</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/zodhlc3atkef2xf/17%20Grand%20Order%20%28Babylonia%20ver.%29.mp3">17 Grand Order (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/1v5qql7k8r9sqby/18%20Chaldea%20%28Babylonia%20ver.%29.mp3">18 Chaldea (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/13k9h99n2w84zrr/19%20My%20Room%20%28Babylonia%20ver.%29.mp3">19 My Room (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/3kt66rzl6dz098t/20%20Familiar%20Melody%20%28Babylonia%20ver.%29.mp3">20 Familiar Melody (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/6wuncnteo4wtx9a/21%20Lively%20Journey%20%28Babylonia%20ver.%29.mp3">21 Lively Melody (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/yefq4l179fcf6s6/22%20Absolute%20Demonic%20Front-%20Babylonia%20%28Babylonia%20ver.%29.mp3">22 Absolute Demonic Front - Babylonia (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/tj01qmz385q3gkz/23%20The%20Golden%20Capital%20%28Babylonia%20ver.%29.mp3">23 The Golden Capital (Babylonia)</a></li>
+    <li><a href="https://dl.dropboxusercontent.com/s/hswgagc33m0fp5u/24%20Golden%20King%20-FGO-%20%28Babylonia%20ver.%29.mp3">24 Golden King ~FGO~ (Babylonia)</a></li>
+    </ul>
+    <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script>
+        audioPlayer();
+        function audioPlayer(){
+            var currentSong = 0;
+            $("#audioPlayer")[0].src = $("#playlist li a")[0];
+            $("#playlist li a").click(function(e){
+               e.preventDefault();                           
+               $("#audioPlayer")[0].src = this;
+               $("#audioPlayer")[0].play();
+               $("#playlist li").removeClass("current-song");
+                currentSong = $(this).parent().index();
+                $(this).parent().addClass("current-song");
+            });
+            
+            $("#audioPlayer")[0].addEventListener("ended", function(){
+                currentSong++;
+                $("#playlist li").removeClass("current-song");
+                $("#playlist li:eq("+currentSong+")").addClass("current-song");
+                $("#audioPlayer")[0].src = $("#playlist li a")[currentSong].href;
+                $("#audioPlayer")[0].play();
+            });
+            
+        }
+    
+    </script>
+
+<ul id="downloads">
+<li><a href="https://drive.google.com/drive/folders/1y_QU3Fhx8ye20gWHDxaBfr9TWqjh5niB?usp=sharing">Download This Album from Google Drive</a></li>
+<li><a href="https://www.dropbox.com/sh/chtpjydl3v480ac/AAA15LFOM622QtmjAhYqr8xFa?dl=0">Download This Album from Dropbox</a></li>
+</ul>
+
+</body>
+</html>
+
