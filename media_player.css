@@ -181,3 +181,15 @@ h3{
 .album img:hover {
     transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+    .albums {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .album img {
+        width: 120px;
+        height: 120px;
+    }
+}
