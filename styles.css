@@ -4,8 +4,9 @@
     font-weight: 400;
   
     color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
+    color: #ddedec;
     background-color: #133b51;
+    
   
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -15,20 +16,48 @@
   
 body{
     text-align: center;
-    margin:10;
+    margin: 10;
 }
 
-nav ul{
-    list-style: none;
-    display:contents;
-    justify-content:space-evenly;
+p{
+    font-size: larger;
 }
 
-nav ul li a{
-    color: rgba(255, 255, 255, 0.87);
-    font-weight: bold;
+ nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: right;
+  position: sticky;
+  top: 0;
+}
+
+nav ul li a {
+  display: block;
+  color: #75a4b5;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #111111;
+  border-radius: 15%;
 }
 
 header{
     text-align: center;
+}
+
+.container{
+    text-align: left;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 15px 50px;
+    background: #061e30;
+    margin: auto;
+    width: 50%;
+    max-width: 340px;    
 }
